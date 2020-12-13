@@ -1,0 +1,103 @@
+---
+layout: post
+title: What Are Web Services? Why Are They Useful?
+date: 
+categories:
+- Blog
+tags: []
+permalink: "/"
+---
+<p><!-- wp:paragraph --></p>
+<p>If you are wondering what web service is, keep reading. I will introduce to you the two different types of web services and the java standards that deal with these web services.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>What is a Web Service?</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>Imagine that you have two applications - a Java application running on a Linux environment and a .NET or Python application, running on a Windows environment. Now, the question is how these two applications can communicate with each other. Is there any easy way, if we have in mind just the fact that they are running on a different environment. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Maybe if you think, there is a really simple solution. What if there is some kind of communication bridge between both applications.  Web services are XML-centered data exchange systems that use the internet for A2A (application-to-application) communication and interfacing. These processes involve messages, programs, documents, and objects.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>In simple words, <strong>web service</strong> is every software, application, or even cloud technology that communicates on the network through the HTTP <strong>/</strong> HTTPS protocol. It exchanges messages or data as XML (Extensible Markup Language) or in various other formats like JSON.  </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Now, when you know what kind of animal is the web service, let's say again why they are so useful. If we have two applications, which are written in different languages, they can communicate with each other by data or message exchange, via a web service between client and server. A client calls on the web service by sending an XML request, then the service returns an XML response. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Before we continue, I want to explain to you two or three definitions:<br />XML<br />JSON<br />protocol (HTTP/HTTPS)</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>Service-Oriented Architecture (SOA)</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>When we say web service some developers may associate it with&nbsp;SOA (Service-Oriented Architecture).  SOA is a collection of architectural principles to design and implement our software applications in such a way that they are composed of several software services that have simple well-defined interfaces and can use each other in a loosely coupled manner. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>In other words, SOA is a way of developing software, which provides services to other components via network communication ports.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Let's define what a service is according to the SOA standard, using a Hospital Management application example. Service according to SOA is an implementation of business logic that operates independently of the state of another service.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Here is a Hospital Management application wherein we have an Appointment Management service which allows a patient to schedule an appointment with a doctor. This Appointment management service is consuming the Patient Service to get the patient information and then the Doctor Service to get the doctor's schedule and make an appointment. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":550,"width":389,"height":206,"sizeSlug":"large"} --></p>
+<div class="wp-block-image">
+<figure class="aligncenter size-large is-resized"><img src="{{ site.baseurl }}/assets/images/what-are-web-services-why-are-they-useful.png" alt="" class="wp-image-550" width="389" height="206" /><br />
+<figcaption> </figcaption>
+</figure>
+</div>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Similarly, the Doctor Service consumes a Clinical Service which gives the Doctor Service the data of a particular patient. That is the clinical data of a patient. Similarly, we have a Bed Management application that can be used to allocate a bed if a patient is being checked in. All these components are not clubbed into one single application but they are separated out into services and they are deployed on their own. They communicate with each other in a loosely coupled passion using a standard interface. Meaning, as long as this interface here between the Doctor Service and the Clinical Service remains the same, we can replace this particular Clinical Service with a new Clinical Service we write. Or if the hospital purchases a Clinical Service from a different company, they can use it as long as this contract between these two remains the same.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>This contract, in case of SOAP web services, is the WSDL file and in the case of REST web services, it is the WADL file. The data format that is used to exchange messages between these services in SOA is XML because XML has both data as well as metadata which tells what to do with that data.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Let's look at some of the advantages of SOA. And as we go through them you see that web services pretty much have the very same advantages and that is the reason why web services are the key to implement SOA. The first and foremost advantage is the platform independency. That is, SOA applications should be able to run on multiple platforms and they can communicate with each other. So if an application running on .NET or Linux environment or Windows environment can easily communicate or should easily communicate with a service running on Linux which is written in Java. SOA allows developers to have focus on roles so that they can specialize in an area. Going back to our previous example a set of developers can specialize in a Doctor Management application, a set of developers can focus on a Bed Management service, Clinical Management service so on, and so forth. Loosely coupled which I have already explained.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>As long as the interface remains the same, an application or a service that is a consumer of another service can easily be switched to another service that provides the same functionality because we use standard and loosely coupled interfaces. Since we have split the services or the application into multiple services, if we need a particular functionality we can easily reuse it across our application.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>To summarize, SOA stands for Service Oriented Architecture and it is a set of principles. Web services are a way to implement those principles in applications that we create.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>Types of Web Services - SOAP and REST</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>They are two different types of web services. The first is the big web services or <strong>SOAP</strong> (Simple Object Access Protocol) web services which used XML-based messages on the HTTP post method. So the web service provider and consumer, in this case, communicate using SOAP which is an XML, and they use HTTP post to do the message exchange.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Secondly, the even more powerful <strong>REST</strong>ful (REpresentational State Transfer) web service which uses all the methods available in the HTTP protocol as a standard and then they support multiple data formats, that is the big feature of RESTFul web services along with XML they support JSON, etc.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Each language and platform has standards for implementing these two types of web services. They provide us with tools to implement the SOAP as well as RESTful web services. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:list --></p>
+<ul>
+<li><strong>JAX-WS</strong> stands for JAVA API for XML based web services and it is a standard for implementing SOAP-based web services. </li>
+<li><strong>JAX-RS</strong> stands for JAVA API for RESTful web services and it is a standard for implementing RESTful web services.</li>
+</ul>
+<p><!-- /wp:list --></p>
+<p><!-- wp:heading --></p>
+<h2>SOAP as Web Service</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>SOAP is defined as Simple Object Access Protocol. This web service protocol exchanges structured data using XML and generally HTTP and SMTP for transmission. SOAP also uses WSDL (Web Services Description Language) documents to distribute a web service description model. This describes how the SOAP requests (client-side) and responses (server-side) must appear. Additionally, SOAP web Services have standards for security and addressing.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Pros:</strong>&nbsp;Usually easier to consume, more standards (WSDL, etc.), distributed computing</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Cons:</strong>&nbsp;Difficult set-up, more convoluted coding, harder to develop</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p><!-- /wp:paragraph --></p>

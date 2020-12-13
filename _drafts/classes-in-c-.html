@@ -1,0 +1,395 @@
+---
+layout: post
+title: Classes In C#
+date: 
+categories:
+- Blog
+tags: []
+permalink: "/"
+---
+<p><!-- wp:paragraph --></p>
+<p>In this post, I am going to introduce you to the basics of classes. I will show you a real-world example of classes and why we need them. Then you will see what is an object and how it is different from a class. Finally, you will learn more about static members.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:heading --></p>
+<h2>What Is a Class?</h2>
+<p><!-- /wp:heading --></p>
+<p><!-- wp:paragraph --></p>
+<p>A <strong>class</strong> is a building block of a software application. Applications consist of multiple classes, each responsible for a particular behavior. All these classes together will provide the behavior expected from the application. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"center","id":524,"width":358,"height":152,"sizeSlug":"large","linkDestination":"media","className":"is-style-default"} --></p>
+<div class="wp-block-image is-style-default">
+<figure class="aligncenter size-large is-resized"><a href="https://www.dev-guide.org/wp-content/uploads/2020/05/image-7.png"><img src="{{ site.baseurl }}/assets/images/image-7.png" alt="" class="wp-image-524" width="358" height="152" /></a></figure>
+</div>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>Let's take a look at a real-world example. We all are familiar with the concept of blogs and posts. Let's say we would like to implement a web application as a blog engine with typical layered architecture. Our application will consist of at least three layers. <em>Presentation</em>, <em>business logic</em> which also referred to as domain layer, and <em>data access</em> which is also referred to as the persistence layer.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>In each of these layers, we can have classes each responsible for something particular. For example, in the presentation layer, we can have a class like a <em>PostView</em>, which is purely responsible for displaying imposed to the user. In the business logic or domain layer, we can have the concept of the <em>Post</em> itself. And finally, in the data access or persistence layer, we can have a class like a <em>PostRepository</em>, which knows how to save as opposed to the database or loading from a database. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>A real-world application often consists of hundreds or even thousands of classes collaborating with a shudder. So for you, as a C# programmer, it is absolutely crucial to understand classes and how to use them effectively, in order to build a maintainable, clean, robust and reliable application.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"right","id":529,"width":281,"height":165,"sizeSlug":"large","linkDestination":"media","className":"is-style-default"} --></p>
+<div class="wp-block-image is-style-default">
+<figure class="alignright size-large is-resized"><a href="https://www.dev-guide.org/wp-content/uploads/2020/05/image-8.png"><img src="{{ site.baseurl }}/assets/images/image-8.png" alt="" class="wp-image-529" width="281" height="165" /></a><br />
+<figcaption>UML is a graphical language</figcaption>
+</figure>
+</div>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>The class essentially has two parts - data which is represented by <strong>fields</strong> and behavior which is represented by <strong>methods</strong> or functions. Here is how we illustrate a class in UML or unified modeling language. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>So in UML, a class has three parts. The first part is the name of the class, e.g. <strong>Person</strong>. Then there are fields or attributes of that class, which represent data about that class, e.g. <strong>Name</strong>, <strong>Age</strong>, <strong>Height</strong>, <strong>Weight</strong>. And finally, we have the methods or functions which provide some behavior, e.g. Walk(), Talk(), Eat(), Sleep().  </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:image {"align":"left","id":530,"width":318,"height":170,"sizeSlug":"large","linkDestination":"media","className":"is-style-default"} --></p>
+<div class="wp-block-image is-style-default">
+<figure class="alignleft size-large is-resized"><a href="https://www.dev-guide.org/wp-content/uploads/2020/05/image-9.png"><img src="{{ site.baseurl }}/assets/images/image-9.png" alt="" class="wp-image-530" width="318" height="170" /></a></figure>
+</div>
+<p><!-- /wp:image --></p>
+<p><!-- wp:paragraph --></p>
+<p>A term that is often used with classes, is an object. But what is it?<br />An object is essentially an instance of a class, which resides in the memory. So back to our Personal example. If Person is a class, we can have objects like John Mary and Scott. These are instances of that person. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>The person class or the person type defines the blueprint from which we can create objects at runtime. These objects into memory, talk to each other and as a result, we get the behavior expected from the application. Now let's see how we can declare a class in C#. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Here's a basic syntax for declaring a class. <strong>public</strong> and <strong>class</strong> are reserved keywords in C#. That is why I have indicated them with blue. Word <strong>public</strong> is what we call an access modifier and that is something you're going to learn later in this section. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Each class should have a name or an identifier like <strong>Person</strong>. In terms of the naming convention in C#, we use Pascal Case for naming the classes. In Pascal Case, the first letter of every word should be upper case. We also have Camel Case, in which the first letter of the first word should be lowercase and the first letter of every word after that should be uppercase. In C# we use Camel Case when naming parameters of methods as you will see later in the section. </p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>//So back to the declaration of our class, the class can have fields and methods which we refer to as members of that class. It put members inside this curly braces here we can declare a field for this class and call it name similar to the class we start with an access modifier. In this case public and the data type for that field and an identifier in the real world applications we shouldn't declare fields with public. This is purely for taking you on a step by step journey without confusing you with a lot of details along the way. As we progress in this section you'll find the best way to declare fields. OK now let's see how we can declare a method in this class or similar. So we start with an access modifier. And here is the signature of the method. So a method that can have a return type. In this case void means it doesn't return any value and it has an identifier. And here in brackets we can't put any prompter's that that method may need inside the method.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>We have the code and here we can access any of the members of that class.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>So in this example I'm simply using console dot write line to display the name of that person on the</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>console.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>OK now that we have a class let's see how we can create an object or an instance from it to do that</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>b is the new operator.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>So we start with the type of the class.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>In this case person we give it an identifier and then we use the new operator along with the name of</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>the class to initialize an instance of that class.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Note that here we are using common notation for naming the person object.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>A shorter way to write this go is to use var.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Var is a C-sharp keyword.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>And the reason we use that used to save us from typing the full name of the class because sometimes</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>the name of the class might be quite a few characters.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Plus as you see it's a little bit of duplication.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>To repeat the name of the class in two places.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>So we use the VAR keyword and the compiler automatically knows that this person object is of type person</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Now that we have an object we can access members of that object like accessing the name field and giving</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>a value.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Or we can call one of its methods before we start coding.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Let's talk about class members in C-sharp we have two types of class members.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>You have instance members and static members and instance member is accessible from an object you have</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>already seen that before.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>So we create the person object and then call the Introduce method on the object.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>But we also have stunning members and static member is accessible from the class not an object.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>An example of that is console that right like a console is a class and right line is a static method</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>So we don't have to create an instance of console using the new operator in order to call right line</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Now you may wonder why do we use a static members.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Basically we use them to represent concepts that are a singleton.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>That means we should have only one instance of that concept into memory.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Think of the concept of the current day time we should have only one place in the memory where we know</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>the current day time.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>It doesn't make sense to have different objects.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>It's telling us that current day time is a different value.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Another example is console dot write line when we on a console application.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Basically we have only one console and that's why the console class and all these members are defined</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>as static to declare a member as a static.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>All you have to do is to use the static keyword for the access modifier.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>You can use static on any members of a class.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>OK.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>That's no theory.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Let's open up Visual Studio and do some coding.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>OK here I've got a console application in Visual Studio and that's where we are going to do all the</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>coding for this course.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>You're not going to get into the complexity of Windows applications or web applications or mobile apps</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>We just want to learn about classes interfaces and object oriented programming.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>What you learn here is you can always apply in any kind of application you're going to build OK and</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>start creating our first class.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>So we create a class by public class.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Let's give it a name like person</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>let's define a field for it so public.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>String name again for now we're going to use public until we get to the lecture about access modifiers</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>and then we're going to learn a better way to define fields and let's create a method called introduce</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>I want this method to take a parameter and that's the name of the other person that this person is going</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>to introduce himself to.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>So let's say introduce two and here we use the console class dot write line method.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hi 0.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>I am one.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Basically what we have here is what we call a format string.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>So it's like a template.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>And here are parameters that we will fill with some values.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>So I want the first parameter to be filled by the value of two argument and the second one is going</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>to be the name field stored in the class.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Now that we have this glassless create an object from it.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>So we go to the main method.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>We can either go person person equals new person or a shorter way.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Easy to use for.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>So with var we'll let the compiler figure out what is the type of this person object.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Well the compiler knows it's a sign to the new person object here.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>So when you hover your mouse over var you'll see the tooltip says person.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Now we can assign this person name person that name a calls a John.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>I then can call the Introduce method and pass another name as an argument say introduce yourself to</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Marsh.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Now if you run this application</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>you see.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Hi Marsh I'm John.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Now let's take that to the next level.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Let's say we would like to create a personal object from a string.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>What we can do is to create a parse method.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>So let's go and define the Parse method here.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>The parse mother should take a string and return a person object.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>So person parse straying.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>So SDR.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Basically what we need to do here is to create a person object set the name field based on the SDR argument</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>here and then return that so far.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Personally a cause new person</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>with set the name to SDR and finally return that person.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>Now the interesting thing here is if you want to use this parse method we would have to use it on an</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>object because it's an instance method.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>So that means I can go here and say person Daut parse and give it a name like John and that returns</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>a person object.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>So let's call it P and we can get rid of this name here for now.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>See it's a little bit weird.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>We have to create the person object first and then call the parse method to return a person object.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>It just doesn't make sense as fair to use a static modifier so we can declare this parse method as a</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>static and this way we don't have to create the person object first in order to parse a string so we</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>can simply change just go to</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>use the person class.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>You parse that string and now we have a person object.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>And finally we can call the Introduce method on it as run the application.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>We get the same result.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>So that's a use case for using a static member is static member is only accessible from the class and</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>not an object.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>That's pretty much it for this nature.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>In the next lecture we're going to learn about constructors.</p>
+<p><!-- /wp:paragraph --></p>
+<p><!-- wp:paragraph --></p>
+<p>I hope you enjoy this lecture and thank you for watching.</p>
+<p><!-- /wp:paragraph --></p>
