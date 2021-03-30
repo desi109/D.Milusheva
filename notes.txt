@@ -8,6 +8,8 @@ https://desi109.github.io/DesislavaMilusheva/
 ------------
 
     How to start the local server: (it will run on http://127.0.0.1:4000/)
+bundle
+bundle update
 bundle exec jekyll s --incremental
 kill -9 $(lsof -t -i:4000)
 
