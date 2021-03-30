@@ -32,7 +32,10 @@ and their interfaces are compatible. The architectural
 elements, their interrelationships and limitations, represent
 the ***topology***. 
 
-[![architectural-styles-1](https://github.com/desi109/D.Milusheva/tree/gh-pages/assets/images/2021/03/2021-03-29-architectural-styles-1.jpg)]
+<div style="text-align:center">
+
+![architectural-styles-2](/assets/images/2021/03/2021-03-29-architectural-styles-1.jpg)
+</div>
 
 <br>  
 
@@ -48,7 +51,10 @@ Pipe and Filter is architectural pattern, which has independent entities:
 ### Description
 The pattern of interaction in the pipe-and-filter pattern is haracterized by successive transformations of streams of data. As you can see in the diagram, the data flows in one direction. It starts at a data source, arrives at a filter’s input port(s) where processing is done at the component, and then, is passed via its output port(s) through a pipe to the next filter, and then eventually ends at the data target.
 
-[![architectural-styles-2](https://github.com/desi109/D.Milusheva/tree/gh-pages/assets/images/2021/03/2021-03-29-architectural-styles-2.jpg)]
+<div style="text-align:center">
+
+![architectural-styles-2](/assets/images/2021/03/2021-03-29-architectural-styles-2.jpg)
+</div>
 
 ### Advantages
 
